@@ -1,0 +1,23 @@
+<footer class="col-span-full md:col-span-2 pc-bg-cell rounded-lg text-black">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <h2 class="sr-only">Footer navigation</h2>
+
+    <!-- Links: 2 cols on mobile, 5 on desktop -->
+
+    <!-- Meta row: 5-col grid; pizza under column 5 -->
+    <div class="mt-6 border-t border-black/10 pt-4 grid grid-cols-2 md:grid-cols-5 items-center gap-y-2 text-base md:text-lg">
+      <p class="col-span-2 md:col-span-4">© <span id="year"></span>Policy Camp!</p>
+      <p class="col-span-2 md:col-span-1 md:col-start-5 md:justify-self-start font-semibold">
+        Made with ChatGPT, 💖 & good people!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</footer>
+
