@@ -21,18 +21,41 @@
 
           <section class="space-y-3">
 
-<p class-"mt-2"><span class="font-bold">We’re launching PolicyCamp, a new event for people who want to make policymaking in government even better.</span> It will be a free, one-day unconference (modelled on the highly successful UKGovCamp unconference), bringing together a range of policy practitioners in and around the government to share best practice, talk about the issues that matter to them, and work through their frustrations in a safe, informal setting.</p>
+<p class-"mt-2"><span class="font-bold">We’re launching PolicyCamp, a new event for people who want to make policymaking in government even better.</span>
+
+<p class-"mt-2">Policy Camp will be a free, one-day unconference modelled on the highly successful annual
+
+<span>
+<a href="https://www.ukgovcamp.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:underline-offset-4">
+        UK Gov Camp</a>
+</span>
+        unconference. The idea for Policy Camp comes from the organisers of 
+
+<span>
+<a href="https://www.transformgov.org.uk/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:underline-offset-4">
+        TransformGov Talks</a>.
+</span>
+
+<p class-"mt-2">Policy Camp will bring together a range of policy practitioners in and around the government to share best practice, talk about the issues that matter to them, and work through their frustrations in a safe, informal setting.</p>
 
 <p class-"mt-2">Unlike a traditional conference, an unconference is led by the people who turn up: the agenda is created on the day, with sessions proposed and run by the people in the room. That might feel unfamiliar if you’re more used to formal events, but it’s exactly this open, collaborative format that makes unconferences so energising and impactful.</p> 
 
 <p class-"mt-2">We’re now forming the organising committee, which will think about where to hold it, how big to make it, how to spread the word about it and how to build on the energy and discussions that come from it. We want the organisers to reflect the full diversity of people who care about better policy - across professions, departments, backgrounds and lived experience. Whether you’ve run countless events before or have never heard the word ‘unconference’ until just now, your perspective and skills could be valuable. Join us in shaping something new, inclusive, and exciting for the UK policy community.</p>
-
-            <p class="mt-2">
-              <a href="mailto:policycamp1@gmail.com"target="_blank" class="underline underline-offset-2 hover:underline-offset-4">
-                Click here to get in touch!
-              </a>
+ 
+ <p class="mt-2">
+             <a
+              href="mailto:policycamp1@gmail.com"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 rounded-md pc-bg-color px-4 py-2 text-white
+                     font-medium shadow hover:bg-red-400
+                     focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
+                     disabled:opacity-50 disabled:cursor-not-allowed transition"
+            >
+              Click here to get in touch!
+            </a>
             </p>
-            
+ 
           </section>
         </article>
       </section>
