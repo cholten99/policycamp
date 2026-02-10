@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About · Policy Camp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+</head>
+<body class="w-full md:w-4/5 md:mx-auto pc-bg-color min-h-screen p-2 text-lg md:text-xl leading-relaxed">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:items-stretch">
+    <!-- Header -->
+    <!--#include virtual="/includes/header.html" -->
+
+    <!-- People grid -->
+    <main class="md:col-span-2">
+    
+    <section class="p-6 md:p-8 rounded-2xl pc-bg-cell shadow">
+      <h2 class="text-3xl font-extrabold">About Policy Camp</h2>
+      <p class="mt-4">COPY TBD</p>
+      <p class="mt-4">COPY TBD</p>
+      <p class="mt-4">COPY TBD</p>
+      <p class="mt-4">COPY TBD</p>
+    </section>
+    
+    <section class="mt-2 p-6 md:p-8 rounded-2xl pc-bg-cell shadow">
+        <h1 class="text-3xl font-extrabold mb-4">Who we are</h1>
+
+        <!-- Responsive grid of “bubbles” -->
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <!-- Person card (DUPLICATE THIS LI PER PERSON) -->
+          <li class="h-full">
+            <article class="h-full rounded-2xl bg-white/70 p-4 md:p-5 shadow flex flex-col">
+              <div class="flex items-center gap-4">
+                <img src="/images/us/David.avif" alt="Photo of David Durant"
+                     class="h-20 w-20 md:h-28 md:w-28 rounded-xl object-cover bg-black/10" loading="lazy" />
+                <div>
+                  <h2 class="text-xl md:text-2xl font-black leading-tight">David Durant</h2>
+                  <p class="text-base md:text-lg opacity-80">Co-organiser</p>
+                </div>
+              </div>
+
+              <p class="mt-4 text-base md:text-lg">
+              <p class="mt-4">David is a long-time supporter of the government technology and transformation communities, starting with National Hack the Government Day and Young Rewired State back in 2009.</P>
+              <p class="mt-4">Since then he has worked for mySociety, the Greater London Authority, HackIT (Hackney Council digital team) and most notably spent five years working for the Government Digital Service.</p>
+              <p class="mt-4">David has been on the committee for GovCamp, the UK’s largest government-focused unconference, for several years, focusing on volunteer management.</p>
+              <p class="mt-4">His main hopes for TransformGov Talks are (1) to ensure there is a good mix of future proposals and examples of real-world transformative delivery and (2) to reinvigorate the in-person government transformation community, which he feels has been lacking since the pandemic.</p>
+
+              <!-- Links / socials -->
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <a href="mailto:dave@bowsy.co.uk" class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/email.svg" alt="" class="h-5 w-5" loading="lazy" /> Email
+                </a>
+                <a href="https://www.linkedin.com/in/davidrdurant/?originalSubdomain=uk" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/linkedin.svg" alt="" class="h-5 w-5" loading="lazy" /> LinkedIn
+                </a>
+                <a href="https://bsky.app/profile/bowsy.co.uk" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/bluesky.svg" alt="" class="h-5 w-5" loading="lazy" /> Bluesky
+                </a>
+              </div>
+            </article>
+          </li>
+
+          <li class="h-full">
+            <article class="h-full rounded-2xl bg-white/70 p-4 md:p-5 shadow flex flex-col">
+              <div class="flex items-center gap-4">
+                <img src="/images/us/Gavin.avif" alt="Photo of Gavin Freeguard"
+                     class="h-20 w-20 md:h-28 md:w-28 rounded-xl object-cover bg-black/10" loading="lazy" />
+                <div>
+                  <h2 class="text-xl md:text-2xl font-black leading-tight">Gavin Freeguard</h2>
+                  <p class="text-base md:text-lg opacity-80">Co-organiser</p>
+                </div>
+              </div>
+
+              <p class="mt-4 text-base md:text-lg">
+              <p class="mt-4">Gavin has spent most of the last decade thinking about how better use of data and digital could help make government work better for the people it serves.</p>
+              <p class="mt-4">A freelancer, he was previously programme director at the Institute for Government (where he is still an associate), and is policy associate at Connected by Data, special adviser at the Open Data Institute and member of the Public Digital network.</p>
+              <p class="mt-4">He has also done work for organisations including mySociety, Full Fact, the Ada Lovelace Institute and Apolitical, and in previous lives worked for the Labour Party, the Media Standards Trust and the Orwell Prize.</p>
+              <p class="mt-4">He is also a member of several advisory groups to government around data and information and the steering group of the Open Government Network. He tries to make data fun through the Data Bites event series and the ODI’s occasional data gameshow, the Data Game.</p>
+
+              <!-- Links / socials -->
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <a href="mailto:gavin@gavinfreeguard.com " class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/email.svg" alt="" class="h-5 w-5" loading="lazy" /> Email
+                </a>
+                <a href="https://www.linkedin.com/in/gavin-freeguard-1a2a365/" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/linkedin.svg" alt="" class="h-5 w-5" loading="lazy" /> LinkedIn
+                </a>
+                <a href="https://bsky.app/profile/gavinfreeguard.bsky.social" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/bluesky.svg" alt="" class="h-5 w-5" loading="lazy" /> Bluesky
+                </a>
+              </div>
+            </article>
+          </li>
+
+          <!-- Add more <li>…</li> blocks here for additional people -->
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <!--#include virtual="/includes/footer.html" -->
+  </div>
+</body>
+</html>
+
