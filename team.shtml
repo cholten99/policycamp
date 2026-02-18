@@ -17,20 +17,47 @@
     <!-- People grid -->
     <main class="md:col-span-2">
     
-    <section class="p-6 md:p-8 rounded-2xl pc-bg-cell shadow">
-      <h2 class="text-3xl font-extrabold">About Policy Camp</h2>
-      <p class="mt-4">COPY TBD</p>
-      <p class="mt-4">COPY TBD</p>
-      <p class="mt-4">COPY TBD</p>
-      <p class="mt-4">COPY TBD</p>
-    </section>
-    
     <section class="mt-2 p-6 md:p-8 rounded-2xl pc-bg-cell shadow">
         <h1 class="text-3xl font-extrabold mb-4">Who we are</h1>
 
         <!-- Responsive grid of “bubbles” -->
         <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           <!-- Person card (DUPLICATE THIS LI PER PERSON) -->
+
+          <li class="h-full">
+            <article class="h-full rounded-2xl bg-white/70 p-4 md:p-5 shadow flex flex-col">
+              <div class="flex items-center gap-4">
+                <img src="/images/us/Becky.jpeg" alt="Photo of Becky Miller"
+                     class="h-20 w-20 md:h-28 md:w-28 rounded-xl object-cover bg-black/10" loading="lazy" />
+                <div>
+                  <h2 class="text-xl md:text-2xl font-black leading-tight">Becky Miller</h2>
+                  <p class="text-base md:text-lg opacity-80">Co-organiser</p>
+                </div>
+              </div>
+
+              <p class="mt-4 text-base md:text-lg">
+              <p class="mt-4">Becky never expected to work in government. She joined central Government in 2018 as Policy Lab's first service designer, and has been exploring and testing what it means to be in public and civil service ever since. She has worked at MHCLG in the Local Digital Collaboration Unit, and for the last 4 years at the Department for Environment, Food and Rural Affairs (Defra) helping to set up their first policy design lab for farming policy. </p>
+              <p class="mt-4">At Policy Lab she led on the design of the Policy Profession’s People Centred Policy Design course on FutureLearn. In 2019, she launched the x-govt Climate Work Show and Tells with Ben Carpenter in response to the climate emergency.</p>
+              <p class="mt-4">Before joining government, Becky worked in multiple small businesses and service organisations including London’s award winning music venue, Union Chapel. She enjoys blogging about her experiences as a public servant, volunteering locally and riding her bicycle.</p>
+
+              <!-- Links / socials -->
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <a href="mailto:becky.miller@defra.co.uk" class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/email.svg" alt="" class="h-5 w-5" loading="lazy" /> Email
+                </a>
+                <a href="https://www.linkedin.com/in/beckymiller33/" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/linkedin.svg" alt="" class="h-5 w-5" loading="lazy" /> LinkedIn
+                </a>
+                <a href="https://bsky.app/profile/beckymiller33.bsky.social" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-black/5 hover:bg-black/10 text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <img src="/images/icons/bluesky.svg" alt="" class="h-5 w-5" loading="lazy" /> Bluesky
+                </a>
+              </div>
+            </article>
+          </li>
+
+
           <li class="h-full">
             <article class="h-full rounded-2xl bg-white/70 p-4 md:p-5 shadow flex flex-col">
               <div class="flex items-center gap-4">
