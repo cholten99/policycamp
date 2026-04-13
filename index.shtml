@@ -56,7 +56,7 @@
  
  <p class="mt-2">
              <a
-              href="mailto:policycamp1@gmail.com"
+              href="https://policy-camp.kit.com/a835e7d2de"
               target="_blank"
               rel="noopener"
               class="inline-flex items-center gap-2 rounded-md pc-bg-color px-4 py-2 text-white
@@ -64,7 +64,7 @@
                      focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
                      disabled:opacity-50 disabled:cursor-not-allowed transition"
             >
-              Click here to get in touch!
+              Sign up to our newsletter
             </a>
             </p>
  
