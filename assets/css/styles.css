@@ -219,36 +219,9 @@ h3 {
 }
 
 .hero-visual {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-.hero-visual::before {
-    content: "";
-    position: absolute;
-    width: 38%;
-    aspect-ratio: 1;
-    background: var(--colour-yellow);
-    border-radius: 2rem;
-    top: 7rem;
-    right: -1.2rem;
-    z-index: -1;
-    opacity: 0.9;
-}
-
-.hero-visual::after {
-    content: "";
-    position: absolute;
-    width: 28%;
-    aspect-ratio: 1;
-    background: var(--colour-coral);
-    border-radius: 999px;
-    bottom: -1.4rem;
-    left: -1.4rem;
-    z-index: -1;
-    opacity: 0.85;
 }
 
 .hero-visual img {
