@@ -220,6 +220,9 @@ h3 {
 
 .hero-visual {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .hero-visual::before {
@@ -229,7 +232,7 @@ h3 {
     aspect-ratio: 1;
     background: var(--colour-yellow);
     border-radius: 2rem;
-    top: -1.2rem;
+    top: 7rem;
     right: -1.2rem;
     z-index: -1;
     opacity: 0.9;
@@ -254,48 +257,32 @@ h3 {
     border: 0.6rem solid var(--colour-white);
 }
 
-.countdown-panel,
-.content-section,
-.quote-section,
-.final-cta,
-.page-hero,
-.form-section {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-}
-
-.countdown-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+.hero-countdown {
     background: var(--colour-navy);
     color: var(--colour-white);
     border-radius: var(--radius-large);
-    padding: 2rem;
-    width: calc(100% - 3rem);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
 }
 
-.countdown-panel h2 {
-    font-size: clamp(1.8rem, 3vw, 3rem);
-    margin-bottom: 0.35rem;
-}
-
-.countdown-panel p {
+.hero-countdown h2 {
     margin: 0;
-    color: rgba(255, 255, 255, 0.78);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--colour-white);
+}
+
+.hero-countdown p {
+    margin: 0.4rem 0 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .countdown {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.8rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
 }
 
 .countdown-item {
-    min-width: 6.5rem;
     background: rgba(255, 255, 255, 0.11);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 1rem;
@@ -317,6 +304,16 @@ h3 {
     letter-spacing: 0.08em;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.72);
+}
+
+.content-section,
+.quote-section,
+.final-cta,
+.page-hero,
+.form-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
 }
 
 .split-section {
@@ -518,15 +515,6 @@ h3 {
     .sponsors-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
-    .countdown-panel {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .countdown {
-        justify-content: flex-start;
-    }
 }
 
 @media (max-width: 720px) {
@@ -577,18 +565,6 @@ h3 {
 
     .cta-row {
         width: 100%;
-    }
-
-    .countdown-panel,
-    .final-cta {
-        width: calc(100% - 2rem);
-        padding: 1.5rem;
-    }
-
-    .countdown {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .countdown-item {
