@@ -177,7 +177,8 @@ a {
 }
 
 .hero-cta {
-    grid-column: 2;
+    grid-column: 1;
+
     background: var(--colour-white);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-soft);
