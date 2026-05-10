@@ -34,4 +34,4 @@ function rotateQuote() {
 
 rotateQuote();
 
-setInterval(rotateQuote, 2000);
+setInterval(rotateQuote, 4000);
