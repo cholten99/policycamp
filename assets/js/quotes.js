@@ -10,6 +10,7 @@ const quoteElement = document.getElementById("rotating-quote");
 let currentQuote = 0;
 
 function rotateQuote() {
+
     if (!quoteElement) {
         return;
     }
@@ -17,7 +18,9 @@ function rotateQuote() {
     quoteElement.style.opacity = "0";
 
     setTimeout(() => {
+
         quoteElement.textContent = quotes[currentQuote];
+
         quoteElement.style.opacity = "1";
 
         currentQuote += 1;
@@ -25,8 +28,10 @@ function rotateQuote() {
         if (currentQuote >= quotes.length) {
             currentQuote = 0;
         }
-    }, 300);
+
+    }, 120);
 }
 
 rotateQuote();
-setInterval(rotateQuote, 6000);
+
+setInterval(rotateQuote, 2000);
