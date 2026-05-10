@@ -177,12 +177,13 @@ a {
 }
 
 .hero-cta {
-    grid-column: 1 / -1;
+    grid-column: 2;
     background: var(--colour-white);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-soft);
     padding: 2rem;
     text-align: center;
+    align-self: start;
 }
 
 .hero-cta h2 {
@@ -427,6 +428,10 @@ a {
     .split-section,
     .quote-section {
         grid-template-columns: 1fr;
+    }
+
+    .hero-cta {
+        grid-column: auto;
     }
 
     .card-grid {
