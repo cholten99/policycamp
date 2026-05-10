@@ -572,22 +572,34 @@ h3 {
 
 .hero-title-lockup {
     display: flex;
-    align-items: center;
-    gap: 1.25rem;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero-title-lockup img {
-    width: clamp(4.5rem, 9vw, 7.5rem);
+    width: clamp(5rem, 7vw, 7rem);
     flex: 0 0 auto;
+    margin-top: 0.5rem;
+}
+
+.hero-title-lockup h1 {
+    margin: 0;
 }
 
 .hero-cta {
+    grid-column: 1 / -1;
     width: 100%;
-    margin-top: 2rem;
-    padding: 2rem;
-    text-align: left;
+    margin-top: 1rem;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.hero-cta h2 {
+    margin-bottom: 1.5rem;
 }
 
 .hero-cta .cta-row {
-    justify-content: flex-start;
+    justify-content: center;
+    margin-top: 0;
 }
