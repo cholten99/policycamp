@@ -569,3 +569,25 @@ h3 {
         min-height: 42rem;
     }
 }
+
+.hero-title-lockup {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-title-lockup img {
+    width: clamp(4.5rem, 9vw, 7.5rem);
+    flex: 0 0 auto;
+}
+
+.hero-cta {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: left;
+}
+
+.hero-cta .cta-row {
+    justify-content: flex-start;
+}
