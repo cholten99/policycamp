@@ -45,13 +45,14 @@ a {
     padding: 3rem 1.5rem 4rem;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
-    gap: 3rem;
+    gap: 2rem;
     align-items: start;
 }
 
 .hero-main {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .hero-title-lockup {
@@ -80,12 +81,12 @@ a {
     max-width: 42rem;
     font-size: clamp(1.25rem, 2vw, 1.55rem);
     line-height: 1.42;
-    margin: 1.5rem 0 0;
+    margin: 1rem 0 0;
     color: #263947;
 }
 
 .event-meta {
-    margin-top: 2rem;
+    margin-top: 1.75rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
@@ -123,7 +124,7 @@ a {
 }
 
 .hero-cta {
-    margin-top: 1.5rem;
+    margin-top: auto;
     background: var(--colour-white);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-soft);
@@ -132,8 +133,7 @@ a {
 }
 
 .hero-cta h2 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1;
     letter-spacing: -0.06em;
@@ -204,6 +204,7 @@ a {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
     gap: 0.75rem;
 }
 
@@ -218,6 +219,7 @@ a {
     font-weight: 900;
     white-space: nowrap;
     transition: transform 0.15s ease;
+    font-size: 0.95rem;
 }
 
 .button:hover {
@@ -338,80 +340,6 @@ a {
     margin-top: 3rem;
 }
 
-/* Apply page */
-
-.apply-page {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-}
-
-.apply-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 3rem;
-}
-
-.apply-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    font-weight: 950;
-    font-size: 2rem;
-    line-height: 1;
-}
-
-.apply-brand img {
-    width: 4.5rem;
-    max-width: 4.5rem;
-    height: auto;
-    flex: 0 0 auto;
-}
-
-.apply-intro {
-    padding: 0 0 2rem;
-}
-
-.apply-intro h1 {
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    margin: 0 0 1.5rem;
-    line-height: 0.95;
-    letter-spacing: -0.06em;
-}
-
-.apply-intro p {
-    max-width: 48rem;
-    font-size: 1.18rem;
-}
-
-.form-section {
-    padding: 0;
-}
-
-.form-embed {
-    background: var(--colour-white);
-    border: 1px solid var(--colour-border);
-    border-radius: var(--radius-large);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-}
-
-.form-embed iframe {
-    display: block;
-    width: 100%;
-    height: 3213px;
-    border: 0;
-}
-
-.form-fallback {
-    text-align: center;
-    font-weight: 900;
-    margin-top: 1.5rem;
-}
-
 /* Footer */
 
 .site-footer {
@@ -433,6 +361,14 @@ a {
     .split-section,
     .quote-section {
         grid-template-columns: 1fr;
+    }
+
+    .hero-main {
+        height: auto;
+    }
+
+    .hero-cta {
+        margin-top: 1.5rem;
     }
 
     .card-grid {
@@ -484,23 +420,5 @@ a {
     .content-section,
     .quote-section {
         padding: 3rem 1rem;
-    }
-
-    .apply-page {
-        padding: 1.5rem 1rem 3rem;
-    }
-
-    .apply-header {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .apply-brand {
-        font-size: 1.65rem;
-    }
-
-    .apply-brand img {
-        width: 4rem;
-        max-width: 4rem;
     }
 }
