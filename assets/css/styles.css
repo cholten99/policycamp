@@ -65,10 +65,9 @@ a {
 }
 
 .hero-title-lockup img {
-    width: 5.5rem;
-    max-width: 5.5rem;
+    width: 100%;
+    max-width: 100%;
     height: auto;
-    flex: 0 0 auto;
 }
 
 .hero-title-lockup h1 {
@@ -471,12 +470,8 @@ a {
     }
 
     .hero-title-lockup img {
-        width: 4rem;
-        max-width: 4rem;
-    }
-
-    .hero-title-lockup h1 {
-        font-size: clamp(3.2rem, 16vw, 5rem);
+        width: 100%;
+        max-width: 100%;
     }
 
     .event-meta {
