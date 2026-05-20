@@ -389,8 +389,8 @@ a {
 }
 
 .apply-brand img {
-    width: 4.5rem;
-    max-width: 4.5rem;
+    width: 14rem;
+    max-width: 14rem;
     height: auto;
     flex: 0 0 auto;
 }
@@ -530,7 +530,7 @@ a {
     }
 
     .apply-brand img {
-        width: 4rem;
-        max-width: 4rem;
+        width: 10rem;
+        max-width: 10rem;
     }
 }
