@@ -389,8 +389,8 @@ a {
 }
 
 .apply-brand img {
-    width: 14rem;
-    max-width: 14rem;
+    width: 22rem;
+    max-width: 22rem;
     height: auto;
     flex: 0 0 auto;
 }
@@ -407,8 +407,12 @@ a {
 }
 
 .apply-intro p {
-    max-width: 48rem;
     font-size: 1.18rem;
+}
+
+.apply-intro a {
+    color: var(--colour-teal-dark);
+    text-decoration: underline;
 }
 
 .form-section {
@@ -530,7 +534,7 @@ a {
     }
 
     .apply-brand img {
-        width: 10rem;
-        max-width: 10rem;
+        width: 16rem;
+        max-width: 16rem;
     }
 }
