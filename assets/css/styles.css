@@ -433,7 +433,8 @@ a {
     font-size: 1.18rem;
 }
 
-.apply-intro a {
+.apply-intro a,
+.hero-intro a {
     color: var(--colour-teal-dark);
     text-decoration: underline;
 }
