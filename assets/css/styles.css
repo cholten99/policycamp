@@ -140,6 +140,26 @@ a {
     margin-top: 0.2rem;
 }
 
+.hero-apply-cta {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colour-navy);
+    color: var(--colour-white);
+    border-radius: var(--radius-large);
+    padding: 1.75rem 2rem;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-align: center;
+    transition: transform 0.15s ease;
+}
+
+.hero-apply-cta:hover {
+    transform: translateY(-2px);
+}
+
 .hero-cta {
     grid-column: 1 / -1;
     margin-top: 0;
@@ -147,15 +167,17 @@ a {
     border: 1px solid var(--colour-border);
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-soft);
-    padding: 1.75rem;
+    padding: 1.25rem 1.75rem;
     text-align: center;
 }
 
 .hero-cta h2 {
-    margin: 0 0 1.2rem;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1;
-    letter-spacing: -0.06em;
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-muted);
 }
 
 .hero-countdown {
@@ -226,6 +248,7 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.45rem;
     min-height: 2.8rem;
     padding: 0.7rem 1.15rem;
     border-radius: 999px;
