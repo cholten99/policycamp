@@ -173,7 +173,7 @@ a {
 
 .hero-cta h2 {
     margin: 0 0 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -253,7 +253,7 @@ a {
     padding: 0.7rem 1.15rem;
     border-radius: 999px;
     font-weight: 900;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1;
     white-space: nowrap;
     transition: transform 0.15s ease;
