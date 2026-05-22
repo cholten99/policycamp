@@ -497,8 +497,15 @@ a {
 
 /* FAQs */
 
+.faq-page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 1.5rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
 .faq-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .faq-section .eyebrow {
@@ -510,14 +517,14 @@ a {
     border: 1px solid var(--colour-border);
     border-radius: var(--radius-medium);
     box-shadow: 0 4px 16px rgba(16, 34, 49, 0.05);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     overflow: hidden;
 }
 
 .faq-item summary {
-    padding: 1.25rem 1.5rem;
+    padding: 1.4rem 1.75rem;
     font-weight: 900;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -544,13 +551,15 @@ a {
 }
 
 .faq-answer {
-    padding: 0 1.5rem 1.5rem;
+    padding: 0.25rem 1.75rem 1.75rem;
     border-top: 1px solid var(--colour-border);
+    font-size: 1.05rem;
+    line-height: 1.65;
 }
 
 .faq-answer p,
 .faq-answer ul {
-    margin: 1rem 0 0;
+    margin: 1.1rem 0 0;
 }
 
 .faq-answer ul {
@@ -558,7 +567,7 @@ a {
 }
 
 .faq-answer li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .faq-answer a {
