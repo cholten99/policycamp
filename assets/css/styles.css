@@ -102,6 +102,21 @@ a {
     color: #263947;
 }
 
+.hero-faq-prompt {
+    display: inline-block;
+    background: var(--colour-teal-dark);
+    color: var(--colour-white);
+    font-weight: 900;
+    font-size: 1.05rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+}
+
+.hero-faq-prompt:hover {
+    transform: translateY(-2px);
+}
+
 .event-meta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
