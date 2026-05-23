@@ -159,15 +159,14 @@
 
 
 <script>
-function handleSheetCount(response) {
+var google = { visualization: { Query: { setResponse: function(response) {
     if (response.status === 'ok') {
-        var bar = document.getElementById('signupCountBar');
         document.getElementById('signupCount').textContent = response.table.rows.length;
-        bar.hidden = false;
+        document.getElementById('signupCountBar').hidden = false;
     }
-}
+}}}};
 </script>
-<script async src="https://docs.google.com/spreadsheets/d/1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE/gviz/tq?tqx=out:json;handler:handleSheetCount&gid=1798949403"></script>
+<script async src="https://docs.google.com/spreadsheets/d/1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE/gviz/tq?tqx=out:json&gid=1798949403"></script>
 
 </body>
 </html>
