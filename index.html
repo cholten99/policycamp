@@ -53,6 +53,10 @@
             <img src="assets/images/hero2.png" alt="People taking part in a collaborative policy workshop">
         </div>
 
+        <div class="signup-count-bar" id="signupCountBar" hidden>
+            <strong id="signupCount"></strong> people have already applied
+        </div>
+
         <a class="hero-apply-cta" href="apply.html">Apply for a ticket</a>
 
         <section class="hero-cta">
@@ -152,6 +156,18 @@
         <a href="https://docs.google.com/document/d/15QjY1yg1Fi6miLH6lhR8HLeekEWgojzf/edit" target="_blank" rel="noopener">Privacy Statement</a>
     </p>
 </footer>
+
+
+<script>
+function handleSheetCount(response) {
+    if (response.status === 'ok') {
+        var bar = document.getElementById('signupCountBar');
+        document.getElementById('signupCount').textContent = response.table.rows.length;
+        bar.hidden = false;
+    }
+}
+</script>
+<script async src="https://docs.google.com/spreadsheets/d/1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE/gviz/tq?tqx=out:json;handler:handleSheetCount&gid=1798949403"></script>
 
 </body>
 </html>
