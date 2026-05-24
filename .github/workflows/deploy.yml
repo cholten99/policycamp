@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           key: ${{ secrets.SFTP_PRIVATE_KEY }}
           port: 22
-          source: "."  # Or "./public" or similar if your files are in a subfolder
+          source: "*"
           target: "/var/www/policycamp"
           rm: true
 
