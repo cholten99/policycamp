@@ -165,6 +165,14 @@ a {
     font-size: clamp(1.05rem, 1.8vw, 1.3rem);
 }
 
+.hero-apply-deadline {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 0;
+    color: var(--colour-muted);
+    font-size: 1rem;
+}
+
 .hero-apply-cta {
     grid-column: 1 / -1;
     display: flex;
