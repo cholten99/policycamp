@@ -165,17 +165,10 @@ a {
     font-size: clamp(1.05rem, 1.8vw, 1.3rem);
 }
 
-.hero-apply-deadline {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin: 0;
-    color: var(--colour-muted);
-    font-size: 1rem;
-}
-
 .hero-apply-cta {
     grid-column: 1 / -1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: var(--colour-navy);
@@ -187,6 +180,15 @@ a {
     letter-spacing: -0.04em;
     text-align: center;
     transition: transform 0.15s ease;
+}
+
+.hero-apply-deadline {
+    display: block;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    opacity: 0.7;
+    margin-top: 0.25rem;
 }
 
 .hero-apply-cta:hover {
