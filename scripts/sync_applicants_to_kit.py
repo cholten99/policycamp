@@ -10,10 +10,12 @@ Usage:
   python3 scripts/sync_applicants_to_kit.py --dry-run  # log only, no changes
 """
 
+import json
 import os
 import sys
 import argparse
 import logging
+import urllib.request
 from pathlib import Path
 
 import requests
@@ -66,13 +68,33 @@ def add_subscriber(email, api_key, dry_run):
         return False
 
 
+def send_failure_email(error_msg, brevo_key):
+    html = f"""<html><body>
+<h2>Policy Camp Kit Sync Failed</h2>
+<pre>{error_msg}</pre>
+</body></html>"""
+    payload = json.dumps({
+        "sender":      {"name": "Policy Camp Scripts", "email": "dave@bowsy.co.uk"},
+        "to":          [{"email": "cholten99@gmail.com", "name": "Dave"}],
+        "subject":     "Policy Camp Kit Sync Failed",
+        "htmlContent": html,
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.brevo.com/v3/smtp/email",
+        data=payload,
+        headers={"api-key": brevo_key, "Content-Type": "application/json"},
+    )
+    urllib.request.urlopen(req)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="Log what would happen without adding subscribers")
     args = parser.parse_args()
     dry_run = args.dry_run
 
-    api_key = os.getenv("KIT_API_KEY")
+    api_key    = os.getenv("KIT_API_KEY")
+    brevo_key  = os.getenv("BREVO_API_KEY")
     if not api_key:
         log.error("KIT_API_KEY not set in .env")
         sys.exit(1)
@@ -82,17 +104,30 @@ def main():
     else:
         log.info("=== LIVE RUN — subscribers will be added to Kit ===")
 
-    emails = get_emails()
-    log.info(f"Found {len(emails)} email addresses in sheet")
+    try:
+        emails = get_emails()
+        log.info(f"Found {len(emails)} email addresses in sheet")
 
-    ok = fail = 0
-    for email in emails:
-        if add_subscriber(email, api_key, dry_run):
-            ok += 1
-        else:
-            fail += 1
+        ok = fail = 0
+        for email in emails:
+            if add_subscriber(email, api_key, dry_run):
+                ok += 1
+            else:
+                fail += 1
 
-    log.info(f"Done — {ok} {'would be added' if dry_run else 'added'}, {fail} failed")
+        log.info(f"Done — {ok} {'would be added' if dry_run else 'added'}, {fail} failed")
+
+        if fail and brevo_key:
+            send_failure_email(f"{fail} subscriber(s) failed to add — check logs for details.", brevo_key)
+
+    except Exception as e:
+        log.error(f"Script error: {e}")
+        if brevo_key:
+            try:
+                send_failure_email(str(e), brevo_key)
+            except Exception as mail_err:
+                log.error(f"Failed to send alert email: {mail_err}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
