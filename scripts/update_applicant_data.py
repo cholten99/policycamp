@@ -199,10 +199,10 @@ def main():
             html = inject(html, col, content)
             log.info(f"Column {col}: {len(values)} responses after filtering")
 
-        # J: dietary — normalize variants and show as count table
+        # J: dietary — normalize variants and show as scrollable count table
         values = filter_blanks(fetch_column(service, "J"))
         normalised = [normalize_dietary(v) for v in values]
-        content = make_count_table(Counter(normalised))
+        content = make_count_table(Counter(normalised), scrollable=True)
         html = inject(html, "J", content)
         log.info(f"Column J: {len(normalised)} dietary responses")
 
@@ -211,9 +211,9 @@ def main():
         html = inject(html, "O", make_word_cloud_from_frequencies(values, "O"))
         log.info(f"Column O: {len(values)} responses")
 
-        # N: unique free-text — use word frequency across all text
+        # N: unique free-text — scrollable list of all responses
         values = fetch_column(service, "N")
-        html = inject(html, "N", make_word_cloud_from_text(values, "N"))
+        html = inject(html, "N", make_free_list(values))
         log.info(f"Column N: {len(values)} responses")
 
         HTML_FILE.write_text(html)
