@@ -38,7 +38,19 @@ IMAGES_DIR = Path(__file__).parent.parent / "assets" / "images"
 
 MULTIPLE_CHOICE = {"D", "E", "F", "H", "K", "L", "M", "P"}
 COUNT_TABLE     = {"G"}
-FREE_LIST       = {"I", "J"}
+FREE_LIST       = {"I"}
+
+DIETARY_ALIASES = {
+    "pescetarian": "Pescatarian",
+    "pescatarian": "Pescatarian",
+    "vegetarian":  "Vegetarian",
+    "vegan":       "Vegan",
+    "halal":       "Halal",
+    "gluten free": "Gluten free",
+    "gluten-free": "Gluten free",
+    "dairy free":  "Dairy free",
+    "dairy-free":  "Dairy free",
+}
 
 NAVY = "#102231"
 TEAL = "#128b84"
@@ -63,11 +75,15 @@ def fetch_column(service, col):
 
 
 BLANK_RESPONSES = {
-    "", "n/a", "na", "none", "no", "nil", "-", "–", "—", "n.a.", "none.",
+    "", "n/a", "na", "n.a", "n.a.", "none", "no", "nil", "-", "–", "—", "none.",
     "no requirements", "no dietary requirements", "no accessibility needs",
     "no accessibility requirements", "none known", "none that i know of",
     "none at this time", "nothing", "not applicable",
 }
+
+
+def normalize_dietary(value):
+    return DIETARY_ALIASES.get(value.lower().strip(), value.strip().title())
 
 
 def filter_blanks(values):
@@ -182,6 +198,13 @@ def main():
             content = make_free_list(values)
             html = inject(html, col, content)
             log.info(f"Column {col}: {len(values)} responses after filtering")
+
+        # J: dietary — normalize variants and show as count table
+        values = filter_blanks(fetch_column(service, "J"))
+        normalised = [normalize_dietary(v) for v in values]
+        content = make_count_table(Counter(normalised))
+        html = inject(html, "J", content)
+        log.info(f"Column J: {len(normalised)} dietary responses")
 
         # O: short repeated entries — use whole-entry frequency cloud
         values = fetch_column(service, "O")
