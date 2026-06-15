@@ -21,7 +21,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from wordcloud import WordCloud
+from wordcloud import WordCloud, STOPWORDS
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -39,7 +39,6 @@ IMAGES_DIR = Path(__file__).parent.parent / "assets" / "images"
 MULTIPLE_CHOICE = {"D", "E", "F", "H", "K", "L", "M", "P"}
 COUNT_TABLE     = {"G"}
 FREE_LIST       = {"I", "J"}
-WORD_CLOUD      = {"N", "O"}
 
 NAVY = "#102231"
 TEAL = "#128b84"
@@ -63,12 +62,27 @@ def fetch_column(service, col):
     return [r[0].strip() for r in rows if r and r[0].strip()]
 
 
-def make_count_table(counter):
+BLANK_RESPONSES = {
+    "", "n/a", "na", "none", "no", "nil", "-", "–", "—", "n.a.", "none.",
+    "no requirements", "no dietary requirements", "no accessibility needs",
+    "no accessibility requirements", "none known", "none that i know of",
+    "none at this time", "nothing", "not applicable",
+}
+
+
+def filter_blanks(values):
+    return [v for v in values if v.lower().strip(".").strip() not in BLANK_RESPONSES]
+
+
+def make_count_table(counter, scrollable=False):
     rows = "\n".join(
         f'                    <tr><td>{option}</td><td>{count}</td></tr>'
         for option, count in sorted(counter.items(), key=lambda x: -x[1])
     )
-    return f'\n                <table class="data-table">\n{rows}\n                </table>\n                '
+    table = f'<table class="data-table">\n{rows}\n                </table>'
+    if scrollable:
+        return f'\n                <div class="scrollable-widget">{table}</div>\n                '
+    return f'\n                {table}\n                '
 
 
 def make_free_list(values):
@@ -76,15 +90,13 @@ def make_free_list(values):
         f'                    <li>{v}</li>'
         for v in values
     )
-    return f'\n                <ul class="free-list">\n{items}\n                </ul>\n                '
+    return f'\n                <div class="scrollable-widget"><ul class="free-list">\n{items}\n                </ul></div>\n                '
 
 
-def make_word_cloud(values, col):
-    # Normalise case for grouping, but keep display clean
+def make_word_cloud_from_frequencies(values, col):
+    """Word cloud using whole entries as units — good for short repeated responses (e.g. 'how heard')."""
     normalised = [v.strip().title() for v in values]
     freqs = Counter(normalised)
-    # Ensure minimum frequency of 1 for all entries
-    freqs = {k: max(v, 1) for k, v in freqs.items()}
 
     wc = WordCloud(
         width=900,
@@ -98,7 +110,26 @@ def make_word_cloud(values, col):
     img_path = IMAGES_DIR / f"wordcloud-{col}.png"
     wc.to_file(str(img_path))
     log.info(f"Saved word cloud to {img_path}")
+    return f'\n                <img src="assets/images/wordcloud-{col}.png" alt="Word cloud" class="wordcloud-img">\n                '
 
+
+def make_word_cloud_from_text(values, col):
+    """Word cloud using word frequency across all entries — good for free-text responses."""
+    text = " ".join(values)
+
+    wc = WordCloud(
+        width=900,
+        height=450,
+        background_color=CREAM,
+        color_func=lambda *args, **kwargs: TEAL if hash(args[0]) % 2 == 0 else NAVY,
+        prefer_horizontal=0.7,
+        max_words=150,
+        stopwords=STOPWORDS | {"policy", "policies", "also", "us", "want", "would", "like", "one", "get"},
+    ).generate(text)
+
+    img_path = IMAGES_DIR / f"wordcloud-{col}.png"
+    wc.to_file(str(img_path))
+    log.info(f"Saved word cloud to {img_path}")
     return f'\n                <img src="assets/images/wordcloud-{col}.png" alt="Word cloud" class="wordcloud-img">\n                '
 
 
@@ -142,21 +173,25 @@ def main():
 
         for col in COUNT_TABLE:
             values = fetch_column(service, col)
-            content = make_count_table(Counter(values))
+            content = make_count_table(Counter(values), scrollable=True)
             html = inject(html, col, content)
             log.info(f"Column {col}: {len(values)} responses")
 
         for col in FREE_LIST:
-            values = fetch_column(service, col)
+            values = filter_blanks(fetch_column(service, col))
             content = make_free_list(values)
             html = inject(html, col, content)
-            log.info(f"Column {col}: {len(values)} responses")
+            log.info(f"Column {col}: {len(values)} responses after filtering")
 
-        for col in WORD_CLOUD:
-            values = fetch_column(service, col)
-            content = make_word_cloud(values, col)
-            html = inject(html, col, content)
-            log.info(f"Column {col}: {len(values)} responses")
+        # O: short repeated entries — use whole-entry frequency cloud
+        values = fetch_column(service, "O")
+        html = inject(html, "O", make_word_cloud_from_frequencies(values, "O"))
+        log.info(f"Column O: {len(values)} responses")
+
+        # N: unique free-text — use word frequency across all text
+        values = fetch_column(service, "N")
+        html = inject(html, "N", make_word_cloud_from_text(values, "N"))
+        log.info(f"Column N: {len(values)} responses")
 
         HTML_FILE.write_text(html)
         log.info(f"Updated {HTML_FILE}")
