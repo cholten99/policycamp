@@ -29,13 +29,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(mes
 log = logging.getLogger(__name__)
 
 SHEET_ID      = "1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE"
-EMAIL_COLUMN  = "B"
 KIT_BASE      = "https://api.convertkit.com/v3"
 KIT_FORM_ID   = "9321882"  # Abbey landing page
 KEY_FILE      = Path(__file__).parent.parent / "policy-camp-wesbite-4269360b43fb.json"
 
 
-def get_emails():
+def get_opted_in_emails():
     creds = service_account.Credentials.from_service_account_file(
         KEY_FILE,
         scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"]
@@ -43,10 +42,16 @@ def get_emails():
     service = build("sheets", "v4", credentials=creds)
     result = service.spreadsheets().values().get(
         spreadsheetId=SHEET_ID,
-        range=f"{EMAIL_COLUMN}2:{EMAIL_COLUMN}10000"
+        range="B2:P10000"
     ).execute()
     rows = result.get("values", [])
-    return [row[0].strip() for row in rows if row and row[0].strip()]
+    emails = []
+    for row in rows:
+        email = row[0].strip() if len(row) > 0 else ""
+        newsletter = row[14].strip() if len(row) > 14 else ""  # column P is index 14 (B=0)
+        if email and newsletter.lower() == "yes":
+            emails.append(email)
+    return emails
 
 
 def add_subscriber(email, api_key, dry_run):
@@ -105,8 +110,8 @@ def main():
         log.info("=== LIVE RUN — subscribers will be added to Kit ===")
 
     try:
-        emails = get_emails()
-        log.info(f"Found {len(emails)} email addresses in sheet")
+        emails = get_opted_in_emails()
+        log.info(f"Found {len(emails)} opted-in email addresses in sheet")
 
         ok = fail = 0
         for email in emails:
