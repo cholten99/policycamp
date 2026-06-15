@@ -1,0 +1,53 @@
+.session-slot {
+    margin-bottom: 2.5rem;
+}
+
+.slot-header {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-white);
+    background: var(--colour-teal-dark);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-small);
+    margin: 0 0 1rem;
+}
+
+.slot-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.session-card {
+    background: var(--colour-white);
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-medium);
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.session-location {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--colour-muted);
+}
+
+.session-title {
+    font-size: 1rem;
+    line-height: 1.35;
+    margin: 0;
+    color: var(--colour-navy);
+}
+
+.session-owner {
+    font-size: 0.85rem;
+    color: var(--colour-teal-dark);
+    margin-top: auto;
+    padding-top: 0.25rem;
+}
