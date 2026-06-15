@@ -1,0 +1,8 @@
+# Google service account credentials
+*.json
+
+# Python virtual environment
+venv/
+
+# Environment variables
+.env
