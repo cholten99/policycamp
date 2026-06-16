@@ -165,6 +165,32 @@ a {
     font-size: clamp(1.05rem, 1.8vw, 1.3rem);
 }
 
+.media-partner-bar {
+    grid-column: 1 / -1;
+    background: var(--colour-white);
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-large);
+    padding: 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.media-partner-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--colour-grey);
+}
+
+.media-partner-logo {
+    height: 2.5rem;
+    width: auto;
+    display: block;
+}
+
 .hero-apply-cta {
     grid-column: 1 / -1;
     display: flex;

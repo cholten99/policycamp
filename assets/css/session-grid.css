@@ -51,3 +51,9 @@
     margin-top: auto;
     padding-top: 0.25rem;
 }
+
+.sessions-loading {
+    color: var(--colour-muted);
+    font-size: 1rem;
+    padding: 1rem 0;
+}
