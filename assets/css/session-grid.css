@@ -54,14 +54,9 @@
 
 .session-notes-link {
     font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--colour-teal-dark);
-    text-decoration: none;
-    margin-top: 0.25rem;
-}
-
-.session-notes-link:hover {
+    color: #0000EE;
     text-decoration: underline;
+    margin-top: 0.25rem;
 }
 
 .sessions-loading {
