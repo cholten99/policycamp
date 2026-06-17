@@ -89,13 +89,15 @@ var google = { visualization: { Query: { setResponse: function(response) {
         var titleRow    = rows[i]     || null;
         var ownerRow    = rows[i + 1] || null;
         var locationRow = rows[i + 2] || null;
+        var notesRow    = rows[i + 3] || null;
         var location    = cellVal(locationRow, 1);
 
         for (var col = 0; col < slotLabels.length; col++) {
             var title = cellVal(titleRow, col + 1);
             var owner = cellVal(ownerRow, col + 1);
+            var notes = cellVal(notesRow, col + 1);
             if (title) {
-                sessionsBySlot[col].push({ title: title, owner: owner, location: location });
+                sessionsBySlot[col].push({ title: title, owner: owner, location: location, notes: notes });
             }
         }
 
@@ -107,10 +109,14 @@ var google = { visualization: { Query: { setResponse: function(response) {
     for (var idx = 0; idx < slotLabels.length; idx++) {
         var sessions = sessionsBySlot[idx] || [];
         var cards = sessions.map(function(s) {
+            var notesLink = s.notes
+                ? '<a class="session-notes-link" href="' + escHtml(s.notes) + '" target="_blank" rel="noopener">Session notes</a>'
+                : '';
             return '<div class="session-card">' +
                 '<div class="session-location">' + escHtml(s.location) + '</div>' +
                 '<h3 class="session-title">' + escHtml(s.title) + '</h3>' +
                 '<div class="session-owner">' + escHtml(s.owner) + '</div>' +
+                notesLink +
                 '</div>';
         }).join('\n');
         html += '<div class="session-slot">' +

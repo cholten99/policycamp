@@ -52,6 +52,18 @@
     padding-top: 0.25rem;
 }
 
+.session-notes-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--colour-teal-dark);
+    text-decoration: none;
+    margin-top: 0.25rem;
+}
+
+.session-notes-link:hover {
+    text-decoration: underline;
+}
+
 .sessions-loading {
     color: var(--colour-muted);
     font-size: 1rem;
