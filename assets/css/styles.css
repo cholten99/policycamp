@@ -246,6 +246,19 @@ a {
     color: var(--colour-muted);
 }
 
+.hero-sponsor-tier-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.hero-sponsor-logos {
+    padding: 1.25rem;
+    flex: 1;
+    align-content: center;
+}
+
 .sponsors-bar-logos {
     display: flex;
     justify-content: center;
