@@ -32,7 +32,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(mes
 log = logging.getLogger(__name__)
 
 SHEET_ID   = "1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE"
-KEY_FILE   = Path(__file__).parent.parent / "policy-camp-wesbite-4269360b43fb.json"
+KEY_FILE   = Path(__file__).parent.parent / "policy-camp-wesbite-c3bda78919f9.json"
 HTML_FILE  = Path(__file__).parent.parent / "applicant-data.html"
 IMAGES_DIR = Path(__file__).parent.parent / "assets" / "images"
 

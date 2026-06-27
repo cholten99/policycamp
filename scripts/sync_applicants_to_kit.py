@@ -31,7 +31,7 @@ log = logging.getLogger(__name__)
 SHEET_ID      = "1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE"
 KIT_BASE      = "https://api.convertkit.com/v3"
 KIT_FORM_ID   = "9321882"  # Abbey landing page
-KEY_FILE      = Path(__file__).parent.parent / "policy-camp-wesbite-4269360b43fb.json"
+KEY_FILE      = Path(__file__).parent.parent / "policy-camp-wesbite-c3bda78919f9.json"
 
 
 def get_opted_in_emails():
