@@ -253,6 +253,18 @@ a {
     gap: 1rem;
 }
 
+.hero-host-sponsor {
+    grid-column: 1 / -1;
+}
+
+.hero-sponsor-logos .sponsors-bar-item img {
+    height: 40px;
+}
+
+.hero-sponsor-logos .sponsors-bar-logos {
+    gap: 1.5rem;
+}
+
 .hero-sponsor-logos {
     padding: 1.25rem;
     flex: 1;
@@ -609,17 +621,65 @@ a {
 /* Endorsements */
 
 .endorsement-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
     margin-top: var(--component-gap);
 }
 
 .endorsement-image {
-    width: 400px;
+    align-self: flex-start;
+    width: 100%;
     max-width: 100%;
     border-radius: var(--radius-large);
     box-shadow: var(--shadow-soft);
+}
+
+.endorsement-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    background: var(--colour-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.endorsement-card-photo {
+    width: 100%;
+    aspect-ratio: 6 / 5;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+.endorsement-card-photo--center {
+    object-position: center;
+}
+
+.endorsement-card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.endorsement-card-quote {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+    color: var(--colour-navy);
+}
+
+.endorsement-card-attribution {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--colour-muted);
+    margin: 0;
 }
 
 /* FAQs */
@@ -832,6 +892,7 @@ a {
 .sponsor-tier-silver   { background: #edf0f2; color: #3d4f5c; }
 .sponsor-tier-gold     { background: #fdf6e3; color: #6b4f00; }
 .sponsor-tier-platinum { background: var(--colour-navy); color: var(--colour-white); }
+.sponsor-tier-host     { background: #e1f2f0; color: var(--colour-teal-dark); }
 
 .sponsor-tier-benefits {
     list-style: none;
@@ -1079,7 +1140,8 @@ a {
 
     .partners-grid,
     .sponsors-grid,
-    .sponsor-tier-grid {
+    .sponsor-tier-grid,
+    .endorsement-grid {
         grid-template-columns: 1fr;
     }
 

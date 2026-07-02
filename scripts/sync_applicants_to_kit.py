@@ -10,6 +10,7 @@ Usage:
   python3 scripts/sync_applicants_to_kit.py --dry-run  # log only, no changes
 """
 
+import base64
 import json
 import os
 import sys
@@ -31,12 +32,11 @@ log = logging.getLogger(__name__)
 SHEET_ID      = "1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE"
 KIT_BASE      = "https://api.convertkit.com/v3"
 KIT_FORM_ID   = "9321882"  # Abbey landing page
-KEY_FILE      = Path(__file__).parent.parent / "policy-camp-wesbite-c3bda78919f9.json"
 
 
 def get_opted_in_emails():
-    creds = service_account.Credentials.from_service_account_file(
-        KEY_FILE,
+    creds = service_account.Credentials.from_service_account_info(
+        json.loads(base64.b64decode(os.environ["POLICYCAMP_SA_JSON"])),
         scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"]
     )
     service = build("sheets", "v4", credentials=creds)

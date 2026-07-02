@@ -12,6 +12,7 @@ Usage:
 import re
 import os
 import sys
+import base64
 import json
 import logging
 import urllib.request
@@ -32,7 +33,6 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(mes
 log = logging.getLogger(__name__)
 
 SHEET_ID   = "1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE"
-KEY_FILE   = Path(__file__).parent.parent / "policy-camp-wesbite-c3bda78919f9.json"
 HTML_FILE  = Path(__file__).parent.parent / "applicant-data.html"
 IMAGES_DIR = Path(__file__).parent.parent / "assets" / "images"
 
@@ -58,8 +58,8 @@ CREAM = "#f8f4ed"
 
 
 def get_sheet_service():
-    creds = service_account.Credentials.from_service_account_file(
-        KEY_FILE,
+    creds = service_account.Credentials.from_service_account_info(
+        json.loads(base64.b64decode(os.environ["POLICYCAMP_SA_JSON"])),
         scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"]
     )
     return build("sheets", "v4", credentials=creds)
