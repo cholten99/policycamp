@@ -46,14 +46,14 @@
 }
 
 .session-owner {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--colour-teal-dark);
     margin-top: auto;
     padding-top: 0.25rem;
 }
 
 .session-notes-link {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     color: #0000EE;
     text-decoration: underline;
     margin-top: 0.25rem;
