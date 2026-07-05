@@ -90,12 +90,12 @@ var google = { visualization: { Query: { setResponse: function(response) {
         var ownerRow    = rows[i + 1] || null;
         var locationRow = rows[i + 2] || null;
         var notesRow    = rows[i + 3] || null;
-        var location    = cellVal(locationRow, 1);
 
         for (var col = 0; col < slotLabels.length; col++) {
-            var title = cellVal(titleRow, col + 1);
-            var owner = cellVal(ownerRow, col + 1);
-            var notes = cellVal(notesRow, col + 1);
+            var title    = cellVal(titleRow, col + 1);
+            var owner    = cellVal(ownerRow, col + 1);
+            var location = cellVal(locationRow, col + 1);
+            var notes    = cellVal(notesRow, col + 1);
             if (title) {
                 sessionsBySlot[col].push({ title: title, owner: owner, location: location, notes: notes });
             }
