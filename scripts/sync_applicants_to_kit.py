@@ -10,9 +10,7 @@ Usage:
   python3 scripts/sync_applicants_to_kit.py --dry-run  # log only, no changes
 """
 
-import base64
 import json
-import os
 import sys
 import argparse
 import logging
@@ -20,11 +18,14 @@ import urllib.request
 from pathlib import Path
 
 import requests
-from dotenv import load_dotenv
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
-load_dotenv(Path(__file__).parent.parent / ".env")
+SECRETS_DIR = Path("/home/dave/secrets")
+
+
+def read_secret(name):
+    return (SECRETS_DIR / name).read_text().strip()
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 log = logging.getLogger(__name__)
@@ -36,7 +37,7 @@ KIT_FORM_ID   = "9321882"  # Abbey landing page
 
 def get_opted_in_emails():
     creds = service_account.Credentials.from_service_account_info(
-        json.loads(base64.b64decode(os.environ["POLICYCAMP_SA_JSON"])),
+        json.loads(read_secret("policycamp_service_account.json")),
         scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"]
     )
     service = build("sheets", "v4", credentials=creds)
@@ -98,10 +99,10 @@ def main():
     args = parser.parse_args()
     dry_run = args.dry_run
 
-    api_key    = os.getenv("KIT_API_KEY")
-    brevo_key  = os.getenv("BREVO_API_KEY")
+    api_key    = read_secret("policycamp_kit_api_key")
+    brevo_key  = read_secret("brevo_api_key")
     if not api_key:
-        log.error("KIT_API_KEY not set in .env")
+        log.error("policycamp_kit_api_key not set in /home/dave/secrets/")
         sys.exit(1)
 
     if dry_run:
