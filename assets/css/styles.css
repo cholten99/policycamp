@@ -249,7 +249,7 @@ a {
 .hero-sponsor-tier-grid {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -1097,7 +1097,8 @@ a {
         flex-wrap: wrap;
     }
 
-    .sponsor-tier-grid {
+    .sponsor-tier-grid,
+    .hero-sponsor-tier-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1141,6 +1142,7 @@ a {
     .partners-grid,
     .sponsors-grid,
     .sponsor-tier-grid,
+    .hero-sponsor-tier-grid,
     .endorsement-grid {
         grid-template-columns: 1fr;
     }
