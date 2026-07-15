@@ -6,3 +6,6 @@ venv/
 
 # Environment variables
 .env
+
+# Regenerated word-cloud image, not meaningful source content
+assets/images/wordcloud-O.png
