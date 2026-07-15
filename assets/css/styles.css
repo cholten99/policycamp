@@ -249,7 +249,7 @@ a {
 .hero-sponsor-tier-grid {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -258,7 +258,24 @@ a {
 }
 
 .hero-sponsor-logos .sponsors-bar-item img {
-    height: 40px;
+    height: 48px;
+    width: 130px;
+    object-fit: contain;
+}
+
+.hero-sponsor-logos .sponsors-bar-item img.logo-2x {
+    height: 96px;
+    width: 260px;
+}
+
+.hero-sponsor-logos .sponsors-bar-item img.logo-1-3x {
+    height: 62px;
+    width: 169px;
+}
+
+.hero-sponsor-logos .sponsors-bar-item img.logo-1-5x {
+    height: 72px;
+    width: 195px;
 }
 
 .hero-sponsor-logos .sponsors-bar-logos {
