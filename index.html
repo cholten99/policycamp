@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="assets/css/styles.css?v=73">
 
-    <script defer src="assets/js/countdown.js?v=7"></script>
     <script defer src="assets/js/quotes.js?v=9"></script>
 </head>
 <body>
@@ -24,9 +23,7 @@
     <section class="hero">
 
         <div class="hero-countdown">
-            <h2>23 July 2026</h2>
-            <p>Policy Camp starts in</p>
-            <div id="countdown" class="countdown"></div>
+            <h2>Policy Camp took place on 23 July 2026</h2>
         </div>
 
         <div class="hero-main">
@@ -37,6 +34,10 @@
 
             <p class="hero-intro">
                 A policy event shaped by the people in the room — creating space to explore shared challenges, exchange ideas, and inspire better policy making.
+            </p>
+
+            <p class="hero-intro">
+                Photos of the event, notes taken in the sessions and an overall event report will all be available soon.
             </p>
 
             <a href="faqs.html" class="hero-faq-prompt">New to unconferences? Read our FAQs →</a>
@@ -56,7 +57,7 @@
         </div>
 
         <div class="hero-visual">
-            <img src="assets/images/hero2.png" alt="People taking part in a collaborative policy workshop">
+            <img src="assets/images/hero2.jpg" alt="People taking part in a collaborative policy workshop">
         </div>
 
         <div class="media-partner-bar">
@@ -64,11 +65,11 @@
             <img src="assets/images/CSW.png" alt="Civil Service World" class="media-partner-logo">
         </div>
 
-        <div class="signup-count-bar" id="signupCountBar" hidden>
-            <strong id="signupCount"></strong> people have already applied
+        <div class="signup-count-bar" id="signupCountBar">
+            Over 550 people applied - over 200 attended on the day.
         </div>
 
-        <div class="hero-apply-cta">
+        <div class="hero-apply-cta" hidden style="display: none;">
             <span class="hero-apply-main">Ticket applications are now closed.</span>
         </div>
 
@@ -188,7 +189,7 @@
             </div>
         </div>
 
-        <div class="hero-sponsor">
+        <div class="hero-sponsor" hidden>
             <div class="sponsor-callout">
                 <div>
                     <p class="eyebrow">Support us</p>
@@ -350,15 +351,6 @@
 </footer>
 
 
-<script>
-var google = { visualization: { Query: { setResponse: function(response) {
-    if (response.status === 'ok') {
-        document.getElementById('signupCount').textContent = response.table.rows.length;
-        document.getElementById('signupCountBar').hidden = false;
-    }
-}}}};
-</script>
-<script async src="https://docs.google.com/spreadsheets/d/1EwDe0JsYBO-uTS_S0nEouWHQPNogphWDOzGMqgO7arE/gviz/tq?tqx=out:json&gid=1798949403"></script>
 
 </body>
 </html>
