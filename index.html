@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Policy Camp</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="description" content="Policy Camp is an unconference for policy practitioners, taking place at UCL on 23 July 2026.">
 
     <meta property="og:title" content="Policy Camp">
@@ -12,9 +16,10 @@
     <meta property="og:url" content="https://policycamp.org.uk/">
     <meta property="og:type" content="website">
 
-    <link rel="stylesheet" href="assets/css/styles.css?v=73">
+    <link rel="stylesheet" href="assets/css/styles.css?v=74">
 
     <script defer src="assets/js/quotes.js?v=9"></script>
+    <script defer src="assets/js/hero-carousel.js?v=1"></script>
 </head>
 <body>
 
@@ -57,7 +62,37 @@
         </div>
 
         <div class="hero-visual">
-            <img src="assets/images/hero2.jpg" alt="People taking part in a collaborative policy workshop">
+            <div class="hero-carousel" id="heroCarousel" role="region" aria-label="Photos from Policy Camp">
+                <img src="assets/images/carousel/hero2.jpg" alt="People taking part in a collaborative policy workshop" class="hero-carousel-slide is-active">
+                <img data-src="assets/images/carousel/DSC_1163.jpg" alt="Two speakers presenting together at the Policy Camp podium" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0305.jpg" alt="An attendee adding a sticky note to a session board" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0956.jpg" alt="A facilitator leading a seated group discussion" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0517.jpg" alt="A speaker addressing the audience beside the Policy Camp screen" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0383.jpg" alt="An attendee reading sticky notes on a session board" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_1072.jpg" alt="An attendee speaking during a small group discussion" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0199.jpg" alt="A speaker addressing the room from the podium" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0317-cropped.jpg" alt="An attendee adding a sticky note among colourful session ideas" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0771.jpg" alt="An attendee reviewing the full session schedule board" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0462.jpg" alt="A hand placing a sticky note reading &quot;Taking Politics out of policy?&quot; on a session board" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0412-cropped.jpg" alt="An attendee adding a sticky note to a crowded session board" class="hero-carousel-slide">
+                <img data-src="assets/images/carousel/DSC_0926.jpg" alt="An attendee speaking during a breakout discussion" class="hero-carousel-slide">
+
+                <div class="hero-carousel-dots" role="tablist" aria-label="Choose photo">
+                    <button type="button" class="hero-carousel-dot is-active" data-index="0" aria-label="Photo 1 of 13" aria-selected="true"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="1" aria-label="Photo 2 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="2" aria-label="Photo 3 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="3" aria-label="Photo 4 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="4" aria-label="Photo 5 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="5" aria-label="Photo 6 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="6" aria-label="Photo 7 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="7" aria-label="Photo 8 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="8" aria-label="Photo 9 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="9" aria-label="Photo 10 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="10" aria-label="Photo 11 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="11" aria-label="Photo 12 of 13" aria-selected="false"></button>
+                    <button type="button" class="hero-carousel-dot" data-index="12" aria-label="Photo 13 of 13" aria-selected="false"></button>
+                </div>
+            </div>
         </div>
 
         <div class="media-partner-bar">
