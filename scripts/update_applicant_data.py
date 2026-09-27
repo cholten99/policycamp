@@ -10,16 +10,13 @@ Usage:
 """
 
 import re
-import os
 import sys
-import base64
 import json
 import logging
 import urllib.request
 from collections import Counter
 from pathlib import Path
 
-from dotenv import load_dotenv
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from wordcloud import WordCloud, STOPWORDS
@@ -27,7 +24,11 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-load_dotenv(Path(__file__).parent.parent / ".env")
+SECRETS_DIR = Path("/home/dave/secrets")
+
+
+def read_secret(name):
+    return (SECRETS_DIR / name).read_text().strip()
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 log = logging.getLogger(__name__)
@@ -59,7 +60,7 @@ CREAM = "#f8f4ed"
 
 def get_sheet_service():
     creds = service_account.Credentials.from_service_account_info(
-        json.loads(base64.b64decode(os.environ["POLICYCAMP_SA_JSON"])),
+        json.loads(read_secret("policycamp_service_account.json")),
         scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"]
     )
     return build("sheets", "v4", credentials=creds)
@@ -175,7 +176,7 @@ def send_failure_email(error_msg, brevo_key):
 
 
 def main():
-    brevo_key = os.getenv("BREVO_API_KEY")
+    brevo_key = read_secret("brevo_api_key")
 
     try:
         service = get_sheet_service()
