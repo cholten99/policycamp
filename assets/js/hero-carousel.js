@@ -1,7 +1,7 @@
 // Hero photo carousel: crossfades through event photos, with dot navigation.
 // Progressive loading: only the first slide has a real `src` on page load;
 // every other slide loads via `data-src` just before it's needed, so a mobile
-// visitor never pays for all 13 photos up front -- only the ones they see.
+// visitor never pays for all 12 photos up front -- only the ones they see.
 (function () {
     var ADVANCE_MS = 5000;
 
