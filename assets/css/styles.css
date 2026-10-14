@@ -105,6 +105,11 @@ a {
     color: #263947;
 }
 
+.hero-intro-highlight {
+    font-weight: 900;
+    font-size: 1.1em;
+}
+
 .hero-faq-prompt {
     display: inline-block;
     background: var(--colour-teal-dark);
